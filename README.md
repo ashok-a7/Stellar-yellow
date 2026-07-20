@@ -2,6 +2,10 @@
 
 ## <img src="decentralized.png">
 
+## 🔗 Deployed Smart Contract
+
+> Add your deployed contract link here:https://lab.stellar.org/smart-contracts/contract-explorer?$=network$id=testnet&label=Testnet&horizonUrl=https:////horizon-testnet.stellar.org&rpcUrl=https:////soroban-testnet.stellar.org&passphrase=Test%20SDF%20Network%20/;%20September%202015;&smartContracts$explorer$contractId=CDH63UKVW7OBN7HVD3SKHNOYDTGJUXIJF456IEMGNEVJ5YNIC6YR4ZZF;;
+
 ## 📌 Project Description
 
 This project is a decentralized job board built on the Stellar Soroban smart contract platform. It enables employers to post job listings directly on-chain, removing reliance on centralized job platforms.
