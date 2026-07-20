@@ -1,6 +1,6 @@
 # 🧾 Decentralized Job Board (Soroban Smart Contract)
 
-## <img src="decentralized.png">
+<img width="1920" height="995" alt="image" src="https://github.com/user-attachments/assets/2067cfd4-7cfb-4e0c-8a86-d3f821ab7d38" />
 
 ## 🔗 Deployed Smart Contract
 
