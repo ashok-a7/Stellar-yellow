@@ -1,10 +1,12 @@
 #![no_std]
-use soroban_sdk::{contract, contractimpl, contracttype, symbol_short, Env, Vec, String};
+
+use soroban_sdk::{contract, contractimpl, contracttype, symbol_short, Env, String, Vec};
 
 #[derive(Clone)]
 #[contract]
 pub struct JobBoard;
 
+// Structure representing a job listing
 #[derive(Clone)]
 #[contracttype]
 pub struct Job {
@@ -16,10 +18,12 @@ pub struct Job {
 
 #[contractimpl]
 impl JobBoard {
-
-    // Add a new job
+    // Post a new job to the board
     pub fn post_job(env: Env, id: u64, title: String, description: String, employer: String) {
-        let mut jobs: Vec<Job> = env.storage().instance().get(&symbol_short!("JOBS"))
+        let mut jobs: Vec<Job> = env
+            .storage()
+            .instance()
+            .get(&symbol_short!("JOBS"))
             .unwrap_or(Vec::new(&env));
 
         let job = Job {
@@ -33,15 +37,20 @@ impl JobBoard {
         env.storage().instance().set(&symbol_short!("JOBS"), &jobs);
     }
 
-    // Get all jobs
+    // Return all available job listings
     pub fn get_jobs(env: Env) -> Vec<Job> {
-        env.storage().instance().get(&symbol_short!("JOBS"))
+        env.storage()
+            .instance()
+            .get(&symbol_short!("JOBS"))
             .unwrap_or(Vec::new(&env))
     }
 
-    // Get job by ID
+    // Find a job using its unique ID
     pub fn get_job(env: Env, id: u64) -> Option<Job> {
-        let jobs: Vec<Job> = env.storage().instance().get(&symbol_short!("JOBS"))
+        let jobs: Vec<Job> = env
+            .storage()
+            .instance()
+            .get(&symbol_short!("JOBS"))
             .unwrap_or(Vec::new(&env));
 
         for job in jobs.iter() {
@@ -49,8 +58,10 @@ impl JobBoard {
                 return Some(job);
             }
         }
+
         None
     }
 }
 
+// Unit tests
 mod test;
